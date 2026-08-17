@@ -13,9 +13,10 @@ public class Main {
 
     public static void main(String[] args) {
         // Aquí irá el menú (Fase 8)
-        crearCliente();
-        listarClientes();
-        buscarCliente();
+        //crearCliente();
+        //listarClientes();
+        //buscarCliente();
+        //actualizarCliente();
     }
     
     public static void crearCliente() {
@@ -62,4 +63,25 @@ public class Main {
         }
         System.out.println("Cliente no encontrado.");
     }
+    
+    public static void actualizarCliente() {
+        System.out.println("\n--- ACTUALIZAR CLIENTE ---");
+        System.out.print("Ingrese el ID del cliente a modificar: ");
+        String idBusqueda = sc.nextLine();
+
+        for (Cliente c : clientes) {
+            if (c.getId().equals(idBusqueda)) {
+                System.out.print("Nuevo Nombre (actual: " + c.getNombre() + "): ");
+                c.setNombre(sc.nextLine());
+                System.out.print("Nuevo Teléfono (actual: " + c.getTelefono() + "): ");
+                c.setTelefono(sc.nextLine());
+                System.out.print("Nuevo Email (actual: " + c.getEmail() + "): ");
+                c.setEmail(sc.nextLine());
+                System.out.println("¡Datos actualizados correctamente!");
+                return;
+            }
+        }
+        System.out.println("Cliente no encontrado.");
+    }
+
 }
